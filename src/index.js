@@ -39,4 +39,61 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
   },
 };
 
-console.log('project wired!')
+
+
+
+//NAV
+const navLinks = document.querySelectorAll('header nav a')
+const navLinkTexts = Object.values(siteContent.nav)
+navLinks.forEach((link, idx) => {
+  link.textContent = navLinkTexts[idx]
+  link.classList.add('italic')
+})
+
+
+
+//CTA
+document.querySelector('.cta .cta-text h1').textContent = siteContent.cta.h1
+document.querySelector('.cta .cta-text button').textContent = siteContent.cta.button
+
+
+//TOP-CONTENT
+const topContent = document.querySelector(".top-content")
+const featuresContent = topContent.children[0]
+featuresContent.children[0].textContent = siteContent['main-content']['features-h4']
+featuresContent.children[1].textContent = siteContent['main-content']['features-content']
+const aboutContent = topContent.children[1]
+aboutContent.children[0].textContent = siteContent['main-content']['about-h4']
+aboutContent.children[1].textContent = siteContent['main-content']['about-content']
+//BOTTOM 
+const bottomContent = document.querySelector(".bottom-content")
+const h4Bottom = bottomContent.querySelectorAll('h4')
+h4Bottom[0].textContent = siteContent['main-content']['services-h4']
+h4Bottom[1].textContent = siteContent['main-content']['product-h4']
+h4Bottom[2].textContent = siteContent['main-content']['vision-h4']
+const pBottom = bottomContent.querySelectorAll('p')
+pBottom[0].textContent = siteContent['main-content']['services-content']
+pBottom[1].textContent = siteContent['main-content']['product-content']
+pBottom[2].textContent = siteContent['main-content']['vision-content']
+
+//CONTACT
+ const contact = document.querySelector("section.contact")
+ contact.children[0].textContent = siteContent.contact['contact-h4']
+ contact.children[1].textContent = siteContent.contact['address']
+ contact.children[2].textContent = siteContent.contact['phone']
+ contact.children[3].textContent = siteContent.contact['email']
+
+ 
+
+//FOOTER
+ const footerLink = document.querySelector('footer a')
+ footerLink.textContent = siteContent.footer.copyright
+ footerLink.classList.add('bold')
+
+//IMAGES
+const imageOne = document.querySelector("#logo-img")
+imageOne.src = siteContent.images["logo-img"]
+const imageTwo = document.querySelector("#cta-img")
+imageTwo.src = siteContent.images['cta-img']
+const imageThree = document.querySelector("#middle-img")
+imageThree.setAttribute('src', siteContent.images['accent-img'])
